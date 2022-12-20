@@ -9,7 +9,7 @@ import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--reference', 			'-r', type=str, 				help='Reference file')
-parser.add_argument('--annotation',			'-a', type=str, 				help='Annotation file')
+parser.add_argument('--annotation',			'-a', type=str, 				help='Annotation file', required=False)
 parser.add_argument('--input_path',			'-i', type=str,	default='.',	help='Path in which depicted peak files will be stored')
 parser.add_argument('--tracks', 			'-t', type=str, nargs='+', 		help='Files displayed as tracks')
 parser.add_argument('--output', 			'-o', type=str, 				help='Name of the output file')

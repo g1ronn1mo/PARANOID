@@ -1,0 +1,729 @@
+Dec-20 13:59:02.833 [main] DEBUG nextflow.cli.Launcher - Setting http proxy: ProxyConfig[protocol=http; host=proxy.computational.bio.uni-giessen.de; port=3128]
+Dec-20 13:59:02.899 [main] DEBUG nextflow.cli.Launcher - Setting https proxy: ProxyConfig[protocol=https; host=proxy.computational.bio.uni-giessen.de; port=3128]
+Dec-20 13:59:02.900 [main] DEBUG nextflow.cli.Launcher - Setting ftp proxy: ProxyConfig[protocol=ftp; host=proxy.computational.bio.uni-giessen.de; port=3128]
+Dec-20 13:59:02.900 [main] DEBUG nextflow.cli.Launcher - $> nextflow run PARANOiD.nf --reads ./test_data/iCLIP_RVFV_R1.fastq --reference ./test_data/reference_RVFV.fasta --barcodes ./test_data/barcodes-RVFV.tsv -profile singularity --config ./nextflow.config --resume ' '
+Dec-20 13:59:03.286 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 22.10.1
+Dec-20 13:59:03.315 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/homes/bschwab/.nextflow/plugins; core-plugins: nf-amazon@1.11.0,nf-azure@0.14.2,nf-codecommit@0.1.2,nf-console@1.0.4,nf-ga4gh@1.0.4,nf-google@1.4.4,nf-tower@1.5.5,nf-wave@0.5.2
+Dec-20 13:59:03.328 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Dec-20 13:59:03.329 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Dec-20 13:59:03.333 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Dec-20 13:59:03.344 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Dec-20 13:59:03.364 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/nextflow.config
+Dec-20 13:59:03.366 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/nextflow.config
+Dec-20 13:59:03.403 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Dec-20 13:59:04.534 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [sge, slurm, singularity, local, docker, podman]
+Dec-20 13:59:04.581 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declararion
+Dec-20 13:59:04.611 [main] INFO  nextflow.cli.CmdRun - Launching `PARANOiD.nf` [drunk_bhaskara] DSL2 - revision: 9bd023bd27
+Dec-20 13:59:04.612 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Dec-20 13:59:04.612 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Dec-20 13:59:04.626 [main] DEBUG nextflow.secret.LocalSecretsProvider - Secrets store: /homes/bschwab/.nextflow/secrets/store.json
+Dec-20 13:59:04.631 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@5ad5be4a] - activable => nextflow.secret.LocalSecretsProvider@5ad5be4a
+Dec-20 13:59:04.705 [main] DEBUG nextflow.Session - Session UUID: fd7a3b78-3ace-46ad-a47f-98d488fe68e8
+Dec-20 13:59:04.706 [main] DEBUG nextflow.Session - Run name: drunk_bhaskara
+Dec-20 13:59:04.706 [main] DEBUG nextflow.Session - Executor pool size: 40
+Dec-20 13:59:04.718 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=120; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Dec-20 13:59:04.758 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 22.10.1 build 5828
+  Created: 27-10-2022 16:58 UTC (18:58 CEST)
+  System: Linux 5.15.0-52-generic
+  Runtime: Groovy 3.0.13 on OpenJDK 64-Bit Server VM 17.0.3-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 3405723@hp-dl560 [192.168.2.60]
+  CPUs: 40 - Mem: 1007.8 GB (896.3 GB) - Swap: 3.7 GB (3.6 GB)
+Dec-20 13:59:04.803 [main] DEBUG nextflow.Session - Work-dir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work [ceph]
+Dec-20 13:59:04.830 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Dec-20 13:59:04.846 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Dec-20 13:59:04.931 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Dec-20 13:59:04.946 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 41; maxThreads: 1000
+Dec-20 13:59:05.371 [main] DEBUG nextflow.Session - Session start
+Dec-20 13:59:07.952 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Dec-20 13:59:08.416 [main] INFO  nextflow.Nextflow - 
+BIOCORE@CRG - N F TESTPIPE  ~  version 1.0
+=============================================
+reads                           : ./test_data/iCLIP_RVFV_R1.fastq
+reference                       : ./test_data/reference_RVFV.fasta
+
+Dec-20 13:59:08.486 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:quality_control|quality_control_2` matches process preprocessing:quality_control
+Dec-20 13:59:08.496 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.496 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.505 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Dec-20 13:59:08.513 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=40; memory=1007.8 GB; capacity=40; pollInterval=100ms; dumpInterval=5m
+Dec-20 13:59:08.600 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:adapter_removal` matches process preprocessing:adapter_removal
+Dec-20 13:59:08.602 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.602 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.608 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:quality_filter` matches process preprocessing:quality_filter
+Dec-20 13:59:08.610 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.610 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.613 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:quality_control|quality_control_2` matches process preprocessing:quality_control_2
+Dec-20 13:59:08.615 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.615 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.620 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:extract_rnd_barcode` matches process barcode:extract_rnd_barcode
+Dec-20 13:59:08.622 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.622 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.627 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:check_barcode_file` matches process barcode:check_barcode_file
+Dec-20 13:59:08.628 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.628 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.661 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:split_exp_barcode` matches process barcode:split_exp_barcode
+Dec-20 13:59:08.662 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.663 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.670 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:get_length_exp_barcode|merge_preprocessed_reads|get_top_hits|remove_newlines|extract_top_transcript_sequences|collect_experiments_without_alignments|collect_subtype_analysis_errors` matches process barcode:get_length_exp_barcode
+Dec-20 13:59:08.671 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.672 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.684 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:remove_exp_barcode` matches process barcode:remove_exp_barcode
+Dec-20 13:59:08.685 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.685 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.697 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:get_length_exp_barcode|merge_preprocessed_reads|get_top_hits|remove_newlines|extract_top_transcript_sequences|collect_experiments_without_alignments|collect_subtype_analysis_errors` matches process barcode:merge_preprocessed_reads
+Dec-20 13:59:08.698 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.698 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.707 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:generate_RNA_subtypes_barplot|plot_peak_distance|generate_barcode_barplot|visualize_strand_preference|generate_peak_height_histogram|calc_wig_correlation` matches process barcode:generate_barcode_barplot
+Dec-20 13:59:08.708 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.708 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.719 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:build_index_bowtie|mapping_bowtie` matches process alignment:build_index_bowtie
+Dec-20 13:59:08.721 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.721 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.730 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:build_index_bowtie|mapping_bowtie` matches process alignment:mapping_bowtie
+Dec-20 13:59:08.731 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.731 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.742 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:merge_deduplicated_bam|count_hits|filter_empty_bams|sort_bam|sort_bam_before_strand_pref|determine_strand_preference|index_alignments|extract_top_alignments|index_for_peak_calling|sort_and_index_alignment|get_chromosome_sizes` matches process process_bam:filter_empty_bams
+Dec-20 13:59:08.743 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.743 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.758 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:get_length_exp_barcode|merge_preprocessed_reads|get_top_hits|remove_newlines|extract_top_transcript_sequences|collect_experiments_without_alignments|collect_subtype_analysis_errors` matches process process_bam:collect_experiments_without_alignments
+Dec-20 13:59:08.759 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.759 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.765 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:merge_deduplicated_bam|count_hits|filter_empty_bams|sort_bam|sort_bam_before_strand_pref|determine_strand_preference|index_alignments|extract_top_alignments|index_for_peak_calling|sort_and_index_alignment|get_chromosome_sizes` matches process process_bam:sort_bam
+Dec-20 13:59:08.767 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.767 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.774 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:deduplicate` matches process process_bam:deduplicate
+Dec-20 13:59:08.775 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.775 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.780 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:merge_deduplicated_bam|count_hits|filter_empty_bams|sort_bam|sort_bam_before_strand_pref|determine_strand_preference|index_alignments|extract_top_alignments|index_for_peak_calling|sort_and_index_alignment|get_chromosome_sizes` matches process process_bam:merge_deduplicated_bam
+Dec-20 13:59:08.781 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.781 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.785 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:merge_deduplicated_bam|count_hits|filter_empty_bams|sort_bam|sort_bam_before_strand_pref|determine_strand_preference|index_alignments|extract_top_alignments|index_for_peak_calling|sort_and_index_alignment|get_chromosome_sizes` matches process process_bam:get_chromosome_sizes
+Dec-20 13:59:08.786 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.786 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.795 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:calculate_crosslink_sites|split_wig_2_for_peak_height_hist` matches process process_bam:calculate_crosslink_sites
+Dec-20 13:59:08.795 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.795 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.803 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:wig_to_bigWig|bigWig_to_bedgraph` matches process process_bam:wig_to_bigWig
+Dec-20 13:59:08.804 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.804 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.811 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:wig_to_bigWig|bigWig_to_bedgraph` matches process process_bam:bigWig_to_bedgraph
+Dec-20 13:59:08.812 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.812 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.814 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:merge_deduplicated_bam|count_hits|filter_empty_bams|sort_bam|sort_bam_before_strand_pref|determine_strand_preference|index_alignments|extract_top_alignments|index_for_peak_calling|sort_and_index_alignment|get_chromosome_sizes` matches process process_bam:sort_bam_before_strand_pref
+Dec-20 13:59:08.815 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.815 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.819 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:merge_deduplicated_bam|count_hits|filter_empty_bams|sort_bam|sort_bam_before_strand_pref|determine_strand_preference|index_alignments|extract_top_alignments|index_for_peak_calling|sort_and_index_alignment|get_chromosome_sizes` matches process process_bam:index_for_peak_calling
+Dec-20 13:59:08.819 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.819 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.825 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:pureCLIP` matches process process_bam:pureCLIP
+Dec-20 13:59:08.826 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.826 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.830 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:calculate_crosslink_sites|split_wig_2_for_peak_height_hist` matches process process_bam:split_wig_2_for_peak_height_hist
+Dec-20 13:59:08.831 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.831 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.835 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:generate_RNA_subtypes_barplot|plot_peak_distance|generate_barcode_barplot|visualize_strand_preference|generate_peak_height_histogram|calc_wig_correlation` matches process process_bam:generate_peak_height_histogram
+Dec-20 13:59:08.835 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.835 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.840 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:sequence_extraction` matches process process_bam:sequence_extraction
+Dec-20 13:59:08.841 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.841 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.845 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:motif_search` matches process process_bam:motif_search
+Dec-20 13:59:08.845 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.845 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.849 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:calculate_peak_distance` matches process process_bam:calculate_peak_distance
+Dec-20 13:59:08.850 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.850 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.852 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:generate_RNA_subtypes_barplot|plot_peak_distance|generate_barcode_barplot|visualize_strand_preference|generate_peak_height_histogram|calc_wig_correlation` matches process process_bam:plot_peak_distance
+Dec-20 13:59:08.853 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.853 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.861 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:merge_deduplicated_bam|count_hits|filter_empty_bams|sort_bam|sort_bam_before_strand_pref|determine_strand_preference|index_alignments|extract_top_alignments|index_for_peak_calling|sort_and_index_alignment|get_chromosome_sizes` matches process process_bam:sort_and_index_alignment
+Dec-20 13:59:08.862 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.862 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.865 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.865 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.880 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:multiqc` matches process multiqc
+Dec-20 13:59:08.881 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-20 13:59:08.881 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-20 13:59:08.891 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: bam_filter_empty, collect_experiments_without_alignments, split_exp_barcode, split_wig2_for_correlation, preprocessing:quality_control, build_index_STAR, determine_strand_preference, preprocessing:adapter_removal, wig_to_bam, sort_and_index_alignment, alignment:build_index_bowtie, merge_wigs, process_bam:sort_bam_before_strand_pref, quality_control, remove_newlines, barcode:get_length_exp_barcode, generate_igv_session, extract_rnd_barcode, sequence_extraction, quality_filter, process_bam:collect_experiments_without_alignments, adapter_removal, split_bam_by_chromosome, process_bam:index_for_peak_calling, get_length_exp_barcode, process_bam:plot_peak_distance, merge_preprocessed_reads, process_bam:filter_empty_bams, barcode:check_barcode_file, calculate_peak_distance, process_bam:deduplicate, count_hits, plot_peak_distance, extract_top_alignments, feature_counts, get_RNA_subtypes_distribution, build_index_bowtie, barcode:remove_exp_barcode, get_chromosome_sizes, pureCLIP, process_bam:sort_and_index_alignment, visualize_strand_preference, deduplicate, process_bam:motif_search, extract_top_transcript_sequences, output_reference, process_bam:get_chromosome_sizes, sort_bam_before_strand_pref, index_for_peak_calling, barcode:generate_barcode_barplot, generate_RNA_subtypes_barplot, bam_deduplicate, barcode:split_exp_barcode, process_bam:sort_bam, alignment:mapping_bowtie, multiqc, process_bam:wig_to_bigWig, wig_to_bigWig, generate_peak_height_histogram, check_barcode_file, process_bam:pureCLIP, process_bam:calculate_peak_distance, calculate_crosslink_sites, process_bam:generate_peak_height_histogram, mapping_STAR, generate_barcode_barplot, process_bam:calculate_crosslink_sites, filter_empty_bams, bigWig_to_bedgraph, mapping_bowtie, process_bam:split_wig_2_for_peak_height_hist, quality_control_2, get_top_hits, merge_deduplicated_bam, barcode:extract_rnd_barcode, barcode:merge_preprocessed_reads, process_bam:sequence_extraction, split_wig_2_for_peak_height_hist, prepare_annotation_for_igv, remove_exp_barcode, preprocessing:quality_filter, collect_subtype_analysis_errors, sort_bam, motif_search, preprocessing:quality_control_2, process_bam:merge_deduplicated_bam, process_bam:bigWig_to_bedgraph
+Dec-20 13:59:08.899 [main] DEBUG nextflow.Session - Igniting dataflow network (41)
+Dec-20 13:59:08.912 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > preprocessing:quality_control
+Dec-20 13:59:08.913 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > preprocessing:adapter_removal
+Dec-20 13:59:08.913 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > preprocessing:quality_filter
+Dec-20 13:59:08.914 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > preprocessing:quality_control_2
+Dec-20 13:59:08.914 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > barcode:extract_rnd_barcode
+Dec-20 13:59:08.914 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > barcode:check_barcode_file
+Dec-20 13:59:08.914 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > barcode:split_exp_barcode
+Dec-20 13:59:08.914 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > barcode:get_length_exp_barcode
+Dec-20 13:59:08.915 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > barcode:remove_exp_barcode
+Dec-20 13:59:08.915 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > barcode:merge_preprocessed_reads
+Dec-20 13:59:08.915 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > barcode:generate_barcode_barplot
+Dec-20 13:59:08.915 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > alignment:build_index_bowtie
+Dec-20 13:59:08.915 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > alignment:mapping_bowtie
+Dec-20 13:59:08.915 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:filter_empty_bams
+Dec-20 13:59:08.915 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:collect_experiments_without_alignments
+Dec-20 13:59:08.915 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:sort_bam
+Dec-20 13:59:08.916 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:deduplicate
+Dec-20 13:59:08.916 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:merge_deduplicated_bam
+Dec-20 13:59:08.916 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:get_chromosome_sizes
+Dec-20 13:59:08.916 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:calculate_crosslink_sites
+Dec-20 13:59:08.916 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:wig_to_bigWig
+Dec-20 13:59:08.916 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:bigWig_to_bedgraph
+Dec-20 13:59:08.917 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:sort_bam_before_strand_pref
+Dec-20 13:59:08.917 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:index_for_peak_calling
+Dec-20 13:59:08.917 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:pureCLIP
+Dec-20 13:59:08.917 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:split_wig_2_for_peak_height_hist
+Dec-20 13:59:08.917 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:generate_peak_height_histogram
+Dec-20 13:59:08.917 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:sequence_extraction
+Dec-20 13:59:08.917 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:motif_search
+Dec-20 13:59:08.917 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:calculate_peak_distance
+Dec-20 13:59:08.917 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:plot_peak_distance
+Dec-20 13:59:08.918 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > process_bam:sort_and_index_alignment
+Dec-20 13:59:08.918 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > output_reference
+Dec-20 13:59:08.918 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > multiqc
+Dec-20 13:59:08.918 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Dec-20 13:59:08.918 [main] DEBUG nextflow.Session - Session await
+Dec-20 13:59:08.992 [Actor Thread 31] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/checkbarcode:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-checkbarcode-1.0.img]
+Dec-20 13:59:08.993 [Actor Thread 38] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/fastqc:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-fastqc-1.0.img]
+Dec-20 13:59:08.993 [Actor Thread 37] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/base:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-base-1.0.img]
+Dec-20 13:59:08.993 [Actor Thread 25] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/trim_galore:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-trim_galore-1.0.img]
+Dec-20 13:59:08.994 [Actor Thread 27] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/samtools:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-samtools-1.0.img]
+Dec-20 13:59:08.994 [Actor Thread 21] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/bowtie2:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-bowtie2-1.0.img]
+Dec-20 13:59:09.118 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:09.122 [Task submitter] INFO  nextflow.Session - [40/fb03c8] Submitted process > output_reference (1)
+Dec-20 13:59:09.187 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: output_reference (1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/40/fb03c8c0e9b064ece6496abab9f014]
+Dec-20 13:59:09.208 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=120; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Dec-20 13:59:10.428 [Actor Thread 37] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/base:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-base-1.0.img
+Dec-20 13:59:10.462 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:10.463 [Task submitter] INFO  nextflow.Session - [c0/e94a7a] Submitted process > barcode:get_length_exp_barcode (1)
+Dec-20 13:59:10.504 [Actor Thread 31] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/checkbarcode:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-checkbarcode-1.0.img
+Dec-20 13:59:10.525 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:10.526 [Task submitter] INFO  nextflow.Session - [b2/0c3198] Submitted process > barcode:check_barcode_file (1)
+Dec-20 13:59:10.533 [Actor Thread 27] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/samtools:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-samtools-1.0.img
+Dec-20 13:59:10.549 [Actor Thread 25] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/trim_galore:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-trim_galore-1.0.img
+Dec-20 13:59:10.551 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:10.552 [Task submitter] INFO  nextflow.Session - [e2/19e5ad] Submitted process > process_bam:get_chromosome_sizes (1)
+Dec-20 13:59:10.577 [Actor Thread 21] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/bowtie2:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-bowtie2-1.0.img
+Dec-20 13:59:10.595 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:10.595 [Task submitter] INFO  nextflow.Session - [fc/e5c1a5] Submitted process > alignment:build_index_bowtie (1)
+Dec-20 13:59:10.606 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:10.607 [Task submitter] INFO  nextflow.Session - [3d/5de1c1] Submitted process > preprocessing:adapter_removal (iCLIP_RVFV_R1)
+Dec-20 13:59:10.757 [Actor Thread 38] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/fastqc:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-fastqc-1.0.img
+Dec-20 13:59:10.786 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:10.787 [Task submitter] INFO  nextflow.Session - [a7/237532] Submitted process > preprocessing:quality_control (iCLIP_RVFV_R1)
+Dec-20 13:59:10.830 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: barcode:get_length_exp_barcode (1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/c0/e94a7ace2770b4385d2d2497ba879b]
+Dec-20 13:59:10.994 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: process_bam:get_chromosome_sizes (1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/e2/19e5adfda44b77aefa6bc0b74606b4]
+Dec-20 13:59:11.114 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: barcode:check_barcode_file (1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/b2/0c3198de1fb343c880eccb5ea9208e]
+Dec-20 13:59:11.608 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: alignment:build_index_bowtie (1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/fc/e5c1a5cc45abfaef70e07b64552988]
+Dec-20 13:59:12.080 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: preprocessing:adapter_removal (iCLIP_RVFV_R1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/3d/5de1c1d50724da306e2468710325df]
+Dec-20 13:59:12.092 [Actor Thread 34] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/fastx:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-fastx-1.0.img]
+Dec-20 13:59:13.342 [Actor Thread 34] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/fastx:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-fastx-1.0.img
+Dec-20 13:59:13.376 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:13.376 [Task submitter] INFO  nextflow.Session - [f8/fbcbb6] Submitted process > preprocessing:quality_filter (iCLIP_RVFV_R1)
+Dec-20 13:59:13.975 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: preprocessing:quality_filter (iCLIP_RVFV_R1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/f8/fbcbb641662426e64db955be55b409]
+Dec-20 13:59:13.986 [Actor Thread 41] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/umi-tools:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-umi-tools-1.0.img]
+Dec-20 13:59:13.995 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:13.996 [Task submitter] INFO  nextflow.Session - [5d/aad1fd] Submitted process > preprocessing:quality_control_2 (iCLIP_RVFV_R1)
+Dec-20 13:59:14.835 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: preprocessing:quality_control (iCLIP_RVFV_R1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/a7/2375325aa6ace509432f658c22d6a9]
+Dec-20 13:59:15.617 [Actor Thread 41] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/umi-tools:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-umi-tools-1.0.img
+Dec-20 13:59:15.642 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:15.643 [Task submitter] INFO  nextflow.Session - [40/eebf72] Submitted process > barcode:extract_rnd_barcode (iCLIP_RVFV_R1)
+Dec-20 13:59:18.011 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: preprocessing:quality_control_2 (iCLIP_RVFV_R1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/5d/aad1fd11541e69455204063d022444]
+Dec-20 13:59:19.773 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: barcode:extract_rnd_barcode (iCLIP_RVFV_R1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/40/eebf7265850fa355f973bdab4b31bc]
+Dec-20 13:59:19.807 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:19.808 [Task submitter] INFO  nextflow.Session - [08/4ff7ec] Submitted process > barcode:split_exp_barcode (iCLIP_RVFV_R1)
+Dec-20 13:59:20.348 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: barcode:split_exp_barcode (iCLIP_RVFV_R1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/08/4ff7ec5ff20dd0e0e6e846b058cc68]
+Dec-20 13:59:20.366 [Actor Thread 29] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/rplots:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-rplots-1.0.img]
+Dec-20 13:59:20.390 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:20.391 [Task submitter] INFO  nextflow.Session - [21/b65154] Submitted process > barcode:remove_exp_barcode (A1_rep_1)
+Dec-20 13:59:20.397 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:20.397 [Task submitter] INFO  nextflow.Session - [da/0f0274] Submitted process > barcode:remove_exp_barcode (A1_rep_3)
+Dec-20 13:59:20.402 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:20.402 [Task submitter] INFO  nextflow.Session - [c7/bc46cd] Submitted process > barcode:remove_exp_barcode (A1_rep_2)
+Dec-20 13:59:20.407 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:20.407 [Task submitter] INFO  nextflow.Session - [3e/7ff906] Submitted process > barcode:remove_exp_barcode (A2_rep_3)
+Dec-20 13:59:20.415 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:20.416 [Task submitter] INFO  nextflow.Session - [65/bb63bf] Submitted process > barcode:remove_exp_barcode (A2_rep_2)
+Dec-20 13:59:20.422 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:20.422 [Task submitter] INFO  nextflow.Session - [7e/87c68d] Submitted process > barcode:remove_exp_barcode (A2_rep_1)
+Dec-20 13:59:20.427 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:20.428 [Task submitter] INFO  nextflow.Session - [82/439484] Submitted process > barcode:remove_exp_barcode (unmatched)
+Dec-20 13:59:20.746 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: barcode:remove_exp_barcode (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/21/b65154101405c31ce704088355bdb7]
+Dec-20 13:59:20.785 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: barcode:remove_exp_barcode (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/da/0f02742b7375ff2178149a23148c1c]
+Dec-20 13:59:20.823 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: barcode:remove_exp_barcode (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/c7/bc46cd27c7b98d5aefac48e8ba41c9]
+Dec-20 13:59:20.918 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: barcode:remove_exp_barcode (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/7e/87c68ddf58578c76c4293b336c6a4c]
+Dec-20 13:59:20.968 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 19; name: barcode:remove_exp_barcode (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/82/439484e3fe36412766e82f845fe21e]
+Dec-20 13:59:21.018 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 18; name: barcode:remove_exp_barcode (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/3e/7ff90655bf67a250a0457f5102ab76]
+Dec-20 13:59:21.023 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 17; name: barcode:remove_exp_barcode (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/65/bb63bf51719272d4c5701f6a1fa092]
+Dec-20 13:59:21.052 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.053 [Task submitter] INFO  nextflow.Session - [c5/27f74f] Submitted process > barcode:merge_preprocessed_reads (A1_rep_3)
+Dec-20 13:59:21.058 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.058 [Task submitter] INFO  nextflow.Session - [d5/4efdb5] Submitted process > barcode:merge_preprocessed_reads (A1_rep_1)
+Dec-20 13:59:21.075 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.076 [Task submitter] INFO  nextflow.Session - [5f/098aeb] Submitted process > barcode:merge_preprocessed_reads (A2_rep_1)
+Dec-20 13:59:21.081 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.082 [Task submitter] INFO  nextflow.Session - [36/952cb0] Submitted process > barcode:merge_preprocessed_reads (A2_rep_2)
+Dec-20 13:59:21.086 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.087 [Task submitter] INFO  nextflow.Session - [54/343243] Submitted process > barcode:merge_preprocessed_reads (A2_rep_3)
+Dec-20 13:59:21.093 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.094 [Task submitter] INFO  nextflow.Session - [eb/1e54ff] Submitted process > barcode:merge_preprocessed_reads (unmatched)
+Dec-20 13:59:21.097 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.098 [Task submitter] INFO  nextflow.Session - [42/413632] Submitted process > barcode:merge_preprocessed_reads (A1_rep_2)
+Dec-20 13:59:21.383 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 20; name: barcode:merge_preprocessed_reads (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/d5/4efdb58e9378eee10df5c12db443a0]
+Dec-20 13:59:21.411 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.411 [Task submitter] INFO  nextflow.Session - [5f/49f21b] Submitted process > alignment:mapping_bowtie (A1_rep_1)
+Dec-20 13:59:21.426 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 21; name: barcode:merge_preprocessed_reads (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/c5/27f74f47764b0056c326afa158365a]
+Dec-20 13:59:21.441 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.442 [Task submitter] INFO  nextflow.Session - [75/09bce2] Submitted process > alignment:mapping_bowtie (A1_rep_3)
+Dec-20 13:59:21.478 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 23; name: barcode:merge_preprocessed_reads (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/5f/098aebd5f03fd6fd238c3bf571bf09]
+Dec-20 13:59:21.496 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.497 [Task submitter] INFO  nextflow.Session - [56/93907b] Submitted process > alignment:mapping_bowtie (A2_rep_1)
+Dec-20 13:59:21.542 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 25; name: barcode:merge_preprocessed_reads (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/54/343243351ab1382087849e205eca7d]
+Dec-20 13:59:21.558 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.558 [Task submitter] INFO  nextflow.Session - [ae/5d6bd5] Submitted process > alignment:mapping_bowtie (A2_rep_3)
+Dec-20 13:59:21.566 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 26; name: barcode:merge_preprocessed_reads (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/36/952cb0663d3c9bfd7e1ec7bb4b4eee]
+Dec-20 13:59:21.584 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.585 [Task submitter] INFO  nextflow.Session - [1c/dc5547] Submitted process > alignment:mapping_bowtie (A2_rep_2)
+Dec-20 13:59:21.642 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 22; name: barcode:merge_preprocessed_reads (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/42/413632b07a0169b05d813cd83d4650]
+Dec-20 13:59:21.672 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.673 [Task submitter] INFO  nextflow.Session - [89/40a402] Submitted process > alignment:mapping_bowtie (A1_rep_2)
+Dec-20 13:59:21.695 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 24; name: barcode:merge_preprocessed_reads (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/eb/1e54ff2e3e8b80e261ed1de59b4ccd]
+Dec-20 13:59:21.716 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.717 [Task submitter] INFO  nextflow.Session - [d7/c351d9] Submitted process > alignment:mapping_bowtie (unmatched)
+Dec-20 13:59:21.896 [Actor Thread 29] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/rplots:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-rplots-1.0.img
+Dec-20 13:59:21.918 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:21.918 [Task submitter] INFO  nextflow.Session - [32/a5c692] Submitted process > barcode:generate_barcode_barplot
+Dec-20 13:59:22.030 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 27; name: alignment:mapping_bowtie (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/5f/49f21bd869059edf4a8c67bf2a102b]
+Dec-20 13:59:22.046 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.047 [Task submitter] INFO  nextflow.Session - [b8/3f0f59] Submitted process > process_bam:filter_empty_bams (A1_rep_1)
+Dec-20 13:59:22.051 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.051 [Task submitter] INFO  nextflow.Session - [bf/78d58a] Submitted process > process_bam:sort_bam (A1_rep_1)
+Dec-20 13:59:22.146 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 28; name: alignment:mapping_bowtie (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/75/09bce2a3c605e7d633a14d28418abb]
+Dec-20 13:59:22.157 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.158 [Task submitter] INFO  nextflow.Session - [08/3f1002] Submitted process > process_bam:filter_empty_bams (A1_rep_3)
+Dec-20 13:59:22.162 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.163 [Task submitter] INFO  nextflow.Session - [78/d08692] Submitted process > process_bam:sort_bam (A1_rep_3)
+Dec-20 13:59:22.164 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 29; name: alignment:mapping_bowtie (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/56/93907bea25dc7f6a388e097b063095]
+Dec-20 13:59:22.175 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.176 [Task submitter] INFO  nextflow.Session - [b9/fa4705] Submitted process > process_bam:filter_empty_bams (A2_rep_1)
+Dec-20 13:59:22.180 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.181 [Task submitter] INFO  nextflow.Session - [a4/8a76bb] Submitted process > process_bam:sort_bam (A2_rep_1)
+Dec-20 13:59:22.317 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 30; name: alignment:mapping_bowtie (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/ae/5d6bd501f62cc23fb306a7b0ce5837]
+Dec-20 13:59:22.329 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.330 [Task submitter] INFO  nextflow.Session - [9d/88f478] Submitted process > process_bam:filter_empty_bams (A2_rep_3)
+Dec-20 13:59:22.337 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.338 [Task submitter] INFO  nextflow.Session - [aa/f81e2f] Submitted process > process_bam:sort_bam (A2_rep_3)
+Dec-20 13:59:22.375 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 34; name: process_bam:filter_empty_bams (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/b8/3f0f590448f7730f46b497c3b3990b]
+Dec-20 13:59:22.376 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `process_bam:filter_empty_bams (A1_rep_1)` is unable to find [UnixPath]: `/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/b8/3f0f590448f7730f46b497c3b3990b/A1_rep_1.no_alignments.txt` (pattern: `A1_rep_1.no_alignments.txt`)
+Dec-20 13:59:22.468 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process process_bam:filter_empty_bams > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Dec-20 13:59:22.475 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 31; name: alignment:mapping_bowtie (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/1c/dc55472243ea737c072b9c8faa5e51]
+Dec-20 13:59:22.478 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 32; name: alignment:mapping_bowtie (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/89/40a4023f5af1462268ccbec5d14156]
+Dec-20 13:59:22.480 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 33; name: alignment:mapping_bowtie (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/d7/c351d97809c218edad698584be2185]
+Dec-20 13:59:22.490 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.490 [Task submitter] INFO  nextflow.Session - [fa/51b304] Submitted process > process_bam:sort_bam (A2_rep_2)
+Dec-20 13:59:22.495 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.495 [Task submitter] INFO  nextflow.Session - [59/fb32a9] Submitted process > process_bam:sort_bam (A1_rep_2)
+Dec-20 13:59:22.500 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.500 [Task submitter] INFO  nextflow.Session - [4c/ecf273] Submitted process > process_bam:filter_empty_bams (A1_rep_2)
+Dec-20 13:59:22.505 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.505 [Task submitter] INFO  nextflow.Session - [ad/aa00dc] Submitted process > process_bam:filter_empty_bams (A2_rep_2)
+Dec-20 13:59:22.509 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.510 [Task submitter] INFO  nextflow.Session - [3c/e71a45] Submitted process > process_bam:sort_bam (unmatched)
+Dec-20 13:59:22.515 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.515 [Task submitter] INFO  nextflow.Session - [01/97aad5] Submitted process > process_bam:filter_empty_bams (unmatched)
+Dec-20 13:59:22.562 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 35; name: process_bam:sort_bam (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/bf/78d58aee48283d14fff1d8a7b5de20]
+Dec-20 13:59:22.583 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.583 [Task submitter] INFO  nextflow.Session - [af/57aaba] Submitted process > process_bam:deduplicate (A1_rep_1)
+Dec-20 13:59:22.803 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 36; name: process_bam:filter_empty_bams (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/08/3f10029084acb2ff8b93f8c311bf36]
+Dec-20 13:59:22.804 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `process_bam:filter_empty_bams (A1_rep_3)` is unable to find [UnixPath]: `/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/08/3f10029084acb2ff8b93f8c311bf36/A1_rep_3.no_alignments.txt` (pattern: `A1_rep_3.no_alignments.txt`)
+Dec-20 13:59:22.805 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process process_bam:filter_empty_bams > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Dec-20 13:59:22.894 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 38; name: process_bam:filter_empty_bams (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/b9/fa47055f99b7406858878ca2ff042c]
+Dec-20 13:59:22.895 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `process_bam:filter_empty_bams (A2_rep_1)` is unable to find [UnixPath]: `/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/b9/fa47055f99b7406858878ca2ff042c/A2_rep_1.no_alignments.txt` (pattern: `A2_rep_1.no_alignments.txt`)
+Dec-20 13:59:22.896 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process process_bam:filter_empty_bams > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Dec-20 13:59:22.930 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 37; name: process_bam:sort_bam (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/78/d0869227b3849d64f24d9aac4571c2]
+Dec-20 13:59:22.944 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:22.944 [Task submitter] INFO  nextflow.Session - [b9/c1eb6d] Submitted process > process_bam:deduplicate (A1_rep_3)
+Dec-20 13:59:23.026 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 39; name: process_bam:sort_bam (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/a4/8a76bb0251e01e3e489ceae8002daa]
+Dec-20 13:59:23.037 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:23.037 [Task submitter] INFO  nextflow.Session - [64/6dae44] Submitted process > process_bam:deduplicate (A2_rep_1)
+Dec-20 13:59:23.078 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 41; name: process_bam:filter_empty_bams (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/9d/88f4780b63bcd71356b9b3abf4632e]
+Dec-20 13:59:23.079 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `process_bam:filter_empty_bams (A2_rep_3)` is unable to find [UnixPath]: `/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/9d/88f4780b63bcd71356b9b3abf4632e/A2_rep_3.no_alignments.txt` (pattern: `A2_rep_3.no_alignments.txt`)
+Dec-20 13:59:23.080 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process process_bam:filter_empty_bams > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Dec-20 13:59:23.187 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 40; name: process_bam:sort_bam (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/aa/f81e2f7c0b24937d6002e8977fb0a7]
+Dec-20 13:59:23.199 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:23.200 [Task submitter] INFO  nextflow.Session - [a3/a5890b] Submitted process > process_bam:deduplicate (A2_rep_3)
+Dec-20 13:59:23.222 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 44; name: process_bam:filter_empty_bams (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/4c/ecf2733d53bfb5090f9280e79b5367]
+Dec-20 13:59:23.223 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `process_bam:filter_empty_bams (A1_rep_2)` is unable to find [UnixPath]: `/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/4c/ecf2733d53bfb5090f9280e79b5367/A1_rep_2.no_alignments.txt` (pattern: `A1_rep_2.no_alignments.txt`)
+Dec-20 13:59:23.224 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process process_bam:filter_empty_bams > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Dec-20 13:59:23.257 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 45; name: process_bam:sort_bam (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/59/fb32a9f0a8e63b5609e878a8589a69]
+Dec-20 13:59:23.271 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:23.271 [Task submitter] INFO  nextflow.Session - [6e/0f9684] Submitted process > process_bam:deduplicate (A1_rep_2)
+Dec-20 13:59:23.290 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 43; name: process_bam:sort_bam (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/fa/51b304ae34f8f25e52e25323e7b612]
+Dec-20 13:59:23.292 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 42; name: process_bam:filter_empty_bams (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/ad/aa00dcfa812f54fc8b590f139fd6d5]
+Dec-20 13:59:23.292 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `process_bam:filter_empty_bams (A2_rep_2)` is unable to find [UnixPath]: `/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/ad/aa00dcfa812f54fc8b590f139fd6d5/A2_rep_2.no_alignments.txt` (pattern: `A2_rep_2.no_alignments.txt`)
+Dec-20 13:59:23.293 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process process_bam:filter_empty_bams > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Dec-20 13:59:23.302 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:23.302 [Task submitter] INFO  nextflow.Session - [9a/a78bfc] Submitted process > process_bam:deduplicate (A2_rep_2)
+Dec-20 13:59:23.382 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 47; name: process_bam:sort_bam (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/3c/e71a45c57753c6192709a11f421dfb]
+Dec-20 13:59:23.396 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:23.396 [Task submitter] INFO  nextflow.Session - [c8/6ee2c4] Submitted process > process_bam:deduplicate (unmatched)
+Dec-20 13:59:23.434 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 46; name: process_bam:filter_empty_bams (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/01/97aad5eabad35d8d305557e2748f17]
+Dec-20 13:59:23.435 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `process_bam:filter_empty_bams (unmatched)` is unable to find [UnixPath]: `/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/01/97aad5eabad35d8d305557e2748f17/unmatched.no_alignments.txt` (pattern: `unmatched.no_alignments.txt`)
+Dec-20 13:59:23.436 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process process_bam:filter_empty_bams > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Dec-20 13:59:23.447 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:23.448 [Task submitter] INFO  nextflow.Session - [16/dbf0ec] Submitted process > process_bam:collect_experiments_without_alignments ([])
+Dec-20 13:59:24.030 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 55; name: process_bam:collect_experiments_without_alignments ([]); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/16/dbf0ec026883019b476ae55cb029b0]
+Dec-20 13:59:24.030 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `process_bam:collect_experiments_without_alignments ([])` is unable to find [UnixPath]: `/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/16/dbf0ec026883019b476ae55cb029b0/experiments-without-alignments.txt` (pattern: `experiments-without-alignments.txt`)
+Dec-20 13:59:24.031 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process process_bam:collect_experiments_without_alignments > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Dec-20 13:59:24.629 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: barcode:generate_barcode_barplot; status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/32/a5c69201250743040550af3a0fb3da]
+Dec-20 13:59:26.599 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 49; name: process_bam:deduplicate (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/b9/c1eb6d164c70ffb28cdeb5bbdc3e64]
+Dec-20 13:59:26.614 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 53; name: process_bam:deduplicate (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/9a/a78bfca5e8c78aaa9bb26405935527]
+Dec-20 13:59:26.621 [Actor Thread 23] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/multiqc:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-multiqc-1.0.img]
+Dec-20 13:59:26.671 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 48; name: process_bam:deduplicate (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/af/57aabae03d81afd1d30fc5416369eb]
+Dec-20 13:59:26.963 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 50; name: process_bam:deduplicate (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/64/6dae445527a7e5c5802b08d94b39a5]
+Dec-20 13:59:26.995 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 52; name: process_bam:deduplicate (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/6e/0f968410c3ea5750be209e80179924]
+Dec-20 13:59:27.004 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 54; name: process_bam:deduplicate (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/c8/6ee2c41d081f2bc87efec5c77d19c0]
+Dec-20 13:59:27.075 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 51; name: process_bam:deduplicate (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/a3/a5890baae2d5cbb2a00999bc82f844]
+Dec-20 13:59:27.102 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.103 [Task submitter] INFO  nextflow.Session - [88/4c3d8b] Submitted process > process_bam:merge_deduplicated_bam (A1_rep_1)
+Dec-20 13:59:27.106 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.107 [Task submitter] INFO  nextflow.Session - [a5/913eb4] Submitted process > process_bam:merge_deduplicated_bam (A1_rep_3)
+Dec-20 13:59:27.123 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.123 [Task submitter] INFO  nextflow.Session - [11/08551c] Submitted process > process_bam:merge_deduplicated_bam (A2_rep_1)
+Dec-20 13:59:27.136 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.137 [Task submitter] INFO  nextflow.Session - [bd/5ce57c] Submitted process > process_bam:merge_deduplicated_bam (unmatched)
+Dec-20 13:59:27.141 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.141 [Task submitter] INFO  nextflow.Session - [a8/429401] Submitted process > process_bam:merge_deduplicated_bam (A2_rep_3)
+Dec-20 13:59:27.146 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.146 [Task submitter] INFO  nextflow.Session - [bd/ad85f4] Submitted process > process_bam:merge_deduplicated_bam (A1_rep_2)
+Dec-20 13:59:27.151 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.151 [Task submitter] INFO  nextflow.Session - [f9/dfa2ff] Submitted process > process_bam:merge_deduplicated_bam (A2_rep_2)
+Dec-20 13:59:27.454 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 59; name: process_bam:merge_deduplicated_bam (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/88/4c3d8b16d828865aa14c295c87027b]
+Dec-20 13:59:27.467 [Actor Thread 32] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/determine_cl_sites:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-determine_cl_sites-1.0.img]
+Dec-20 13:59:27.474 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.474 [Task submitter] INFO  nextflow.Session - [4b/cc3624] Submitted process > process_bam:index_for_peak_calling (A1_rep_1)
+Dec-20 13:59:27.479 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.479 [Task submitter] INFO  nextflow.Session - [7f/595501] Submitted process > process_bam:sort_and_index_alignment (A1_rep_1)
+Dec-20 13:59:27.483 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.483 [Task submitter] INFO  nextflow.Session - [de/127c4c] Submitted process > process_bam:sort_bam_before_strand_pref (A1_rep_1)
+Dec-20 13:59:27.537 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 57; name: process_bam:merge_deduplicated_bam (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/a5/913eb4faa55c7775e92741c5f9dbc1]
+Dec-20 13:59:27.540 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 60; name: process_bam:merge_deduplicated_bam (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/11/08551c724708d79ce23569043ca5e0]
+Dec-20 13:59:27.549 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.550 [Task submitter] INFO  nextflow.Session - [db/0c5cc5] Submitted process > process_bam:sort_and_index_alignment (A2_rep_1)
+Dec-20 13:59:27.553 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.553 [Task submitter] INFO  nextflow.Session - [57/369e1a] Submitted process > process_bam:index_for_peak_calling (A1_rep_3)
+Dec-20 13:59:27.557 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.557 [Task submitter] INFO  nextflow.Session - [ad/4e29c6] Submitted process > process_bam:sort_bam_before_strand_pref (A1_rep_3)
+Dec-20 13:59:27.560 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.560 [Task submitter] INFO  nextflow.Session - [90/0437da] Submitted process > process_bam:index_for_peak_calling (A2_rep_1)
+Dec-20 13:59:27.563 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.564 [Task submitter] INFO  nextflow.Session - [74/9ade87] Submitted process > process_bam:sort_bam_before_strand_pref (A2_rep_1)
+Dec-20 13:59:27.569 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.569 [Task submitter] INFO  nextflow.Session - [00/e34d35] Submitted process > process_bam:sort_and_index_alignment (A1_rep_3)
+Dec-20 13:59:27.573 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 62; name: process_bam:merge_deduplicated_bam (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/bd/5ce57ceb695a3442dde9afbc380213]
+Dec-20 13:59:27.593 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.593 [Task submitter] INFO  nextflow.Session - [75/e99e2c] Submitted process > process_bam:sort_bam_before_strand_pref (unmatched)
+Dec-20 13:59:27.596 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.597 [Task submitter] INFO  nextflow.Session - [14/33e1c5] Submitted process > process_bam:index_for_peak_calling (unmatched)
+Dec-20 13:59:27.599 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.600 [Task submitter] INFO  nextflow.Session - [83/df56dc] Submitted process > process_bam:sort_and_index_alignment (unmatched)
+Dec-20 13:59:27.609 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 61; name: process_bam:merge_deduplicated_bam (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/bd/ad85f4b9a6f785eec80f4c3f944b20]
+Dec-20 13:59:27.617 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.617 [Task submitter] INFO  nextflow.Session - [f2/cc803f] Submitted process > process_bam:sort_bam_before_strand_pref (A1_rep_2)
+Dec-20 13:59:27.622 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.622 [Task submitter] INFO  nextflow.Session - [08/ccbc83] Submitted process > process_bam:index_for_peak_calling (A1_rep_2)
+Dec-20 13:59:27.626 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.626 [Task submitter] INFO  nextflow.Session - [df/4bb3f9] Submitted process > process_bam:sort_and_index_alignment (A1_rep_2)
+Dec-20 13:59:27.773 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 63; name: process_bam:merge_deduplicated_bam (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/a8/429401d8d20929d1bf4abcdf651739]
+Dec-20 13:59:27.775 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 58; name: process_bam:merge_deduplicated_bam (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/f9/dfa2ff520fee572066774a5a201ca5]
+Dec-20 13:59:27.784 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.784 [Task submitter] INFO  nextflow.Session - [18/390aa5] Submitted process > process_bam:sort_and_index_alignment (A2_rep_3)
+Dec-20 13:59:27.787 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.788 [Task submitter] INFO  nextflow.Session - [4c/eac8bb] Submitted process > process_bam:index_for_peak_calling (A2_rep_3)
+Dec-20 13:59:27.791 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.791 [Task submitter] INFO  nextflow.Session - [03/b5ad1a] Submitted process > process_bam:sort_bam_before_strand_pref (A2_rep_3)
+Dec-20 13:59:27.794 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.794 [Task submitter] INFO  nextflow.Session - [ac/74cd5a] Submitted process > process_bam:index_for_peak_calling (A2_rep_2)
+Dec-20 13:59:27.797 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.797 [Task submitter] INFO  nextflow.Session - [fc/abd38a] Submitted process > process_bam:sort_and_index_alignment (A2_rep_2)
+Dec-20 13:59:27.801 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:27.801 [Task submitter] INFO  nextflow.Session - [41/6a5a32] Submitted process > process_bam:sort_bam_before_strand_pref (A2_rep_2)
+Dec-20 13:59:27.820 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 66; name: process_bam:index_for_peak_calling (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/4b/cc362439c0d508c0a032e47c3762c0]
+Dec-20 13:59:27.831 [Actor Thread 19] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://quay.io/biocontainers/pureclip:1.3.1--0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/quay.io-biocontainers-pureclip-1.3.1--0.img]
+Dec-20 13:59:27.870 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 65; name: process_bam:sort_bam_before_strand_pref (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/de/127c4cc401c181cae8e8775d1c1381]
+Dec-20 13:59:27.934 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 64; name: process_bam:sort_and_index_alignment (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/7f/5955010c303101f9f687497542ffa1]
+Dec-20 13:59:28.022 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 69; name: process_bam:index_for_peak_calling (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/57/369e1aea722d56cdcc535533155b68]
+Dec-20 13:59:28.032 [Actor Thread 23] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/multiqc:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-multiqc-1.0.img
+Dec-20 13:59:28.042 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:28.042 [Task submitter] INFO  nextflow.Session - [5d/7f85b8] Submitted process > multiqc
+Dec-20 13:59:28.061 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 72; name: process_bam:sort_and_index_alignment (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/db/0c5cc5cf4ec835283930c15400fc68]
+Dec-20 13:59:28.126 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 68; name: process_bam:sort_bam_before_strand_pref (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/ad/4e29c6160894f7f12edc284c71c637]
+Dec-20 13:59:28.130 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 75; name: process_bam:index_for_peak_calling (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/90/0437da39e7a6e8269dfc6d0969c027]
+Dec-20 13:59:28.363 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 74; name: process_bam:sort_bam_before_strand_pref (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/74/9ade8755157c170689f074e24fb5ea]
+Dec-20 13:59:28.379 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 78; name: process_bam:sort_bam_before_strand_pref (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/75/e99e2c1d2cefab3304707f462eb7df]
+Dec-20 13:59:28.439 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 70; name: process_bam:sort_and_index_alignment (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/00/e34d35c78e4aa7116638ec3fadc07d]
+Dec-20 13:59:28.450 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 79; name: process_bam:sort_and_index_alignment (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/83/df56dcc8bbd814dac764375f048f37]
+Dec-20 13:59:28.471 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 76; name: process_bam:index_for_peak_calling (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/14/33e1c5d6f9dbfa96fdff7407471dfd]
+Dec-20 13:59:28.580 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 80; name: process_bam:index_for_peak_calling (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/08/ccbc836f67a05fefdb847ac6d21a65]
+Dec-20 13:59:28.586 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 82; name: process_bam:sort_and_index_alignment (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/df/4bb3f98445de7a85c32e33e3361e53]
+Dec-20 13:59:28.661 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 81; name: process_bam:sort_bam_before_strand_pref (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/f2/cc803f76a5954bac871871a2d61f8c]
+Dec-20 13:59:28.734 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 84; name: process_bam:sort_bam_before_strand_pref (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/03/b5ad1a36eadd56c73de045abedafa5]
+Dec-20 13:59:28.735 [Actor Thread 32] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/determine_cl_sites:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-determine_cl_sites-1.0.img
+Dec-20 13:59:28.746 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 85; name: process_bam:sort_and_index_alignment (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/18/390aa53d163e36cb8bea75583fb972]
+Dec-20 13:59:28.775 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:28.775 [Task submitter] INFO  nextflow.Session - [40/32b91d] Submitted process > process_bam:calculate_crosslink_sites (A2_rep_2)
+Dec-20 13:59:28.779 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:28.779 [Task submitter] INFO  nextflow.Session - [df/8e87e4] Submitted process > process_bam:calculate_crosslink_sites (unmatched)
+Dec-20 13:59:28.783 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:28.783 [Task submitter] INFO  nextflow.Session - [27/82fa1e] Submitted process > process_bam:calculate_crosslink_sites (A1_rep_3)
+Dec-20 13:59:28.786 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:28.786 [Task submitter] INFO  nextflow.Session - [04/4d8f2d] Submitted process > process_bam:calculate_crosslink_sites (A2_rep_3)
+Dec-20 13:59:28.790 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:28.790 [Task submitter] INFO  nextflow.Session - [bf/59f717] Submitted process > process_bam:calculate_crosslink_sites (A1_rep_1)
+Dec-20 13:59:28.793 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:28.793 [Task submitter] INFO  nextflow.Session - [68/849f45] Submitted process > process_bam:calculate_crosslink_sites (A2_rep_1)
+Dec-20 13:59:28.796 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:28.796 [Task submitter] INFO  nextflow.Session - [b7/af9fd3] Submitted process > process_bam:calculate_crosslink_sites (A1_rep_2)
+Dec-20 13:59:28.833 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 86; name: process_bam:index_for_peak_calling (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/4c/eac8bb8d2284fce796d276920effab]
+Dec-20 13:59:28.938 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 89; name: process_bam:sort_bam_before_strand_pref (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/41/6a5a32334c2d498a994e2a8d1d9f1e]
+Dec-20 13:59:29.079 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 90; name: process_bam:index_for_peak_calling (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/ac/74cd5a2ec9eeba968c42d7811667d8]
+Dec-20 13:59:29.123 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 88; name: process_bam:sort_and_index_alignment (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/fc/abd38a0d627a994438851321f004d3]
+Dec-20 13:59:29.757 [Actor Thread 19] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://quay.io/biocontainers/pureclip:1.3.1--0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/quay.io-biocontainers-pureclip-1.3.1--0.img
+Dec-20 13:59:29.794 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:29.794 [Task submitter] INFO  nextflow.Session - [5e/9eb295] Submitted process > process_bam:pureCLIP (A1_rep_1)
+Dec-20 13:59:29.799 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:29.799 [Task submitter] INFO  nextflow.Session - [92/6a30d7] Submitted process > process_bam:pureCLIP (A2_rep_3)
+Dec-20 13:59:29.802 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:29.802 [Task submitter] INFO  nextflow.Session - [26/b3c35e] Submitted process > process_bam:pureCLIP (unmatched)
+Dec-20 13:59:29.805 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:29.805 [Task submitter] INFO  nextflow.Session - [9c/cee94a] Submitted process > process_bam:pureCLIP (A2_rep_1)
+Dec-20 13:59:30.523 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 91; name: process_bam:calculate_crosslink_sites (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/40/32b91df846e70861a0fcf96f7f218e]
+Dec-20 13:59:30.537 [Actor Thread 38] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/peak_distance:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-peak_distance-1.0.img]
+Dec-20 13:59:30.539 [Actor Thread 34] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/wigtobigwig:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-wigtobigwig-1.0.img]
+Dec-20 13:59:30.582 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 77; name: process_bam:calculate_crosslink_sites (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/df/8e87e473498ef31909214e9b8c8b22]
+Dec-20 13:59:30.589 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:30.589 [Task submitter] INFO  nextflow.Session - [d8/99578b] Submitted process > process_bam:split_wig_2_for_peak_height_hist (A2_rep_2)
+Dec-20 13:59:30.592 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:30.592 [Task submitter] INFO  nextflow.Session - [2c/04b072] Submitted process > process_bam:split_wig_2_for_peak_height_hist (unmatched)
+Dec-20 13:59:30.603 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 71; name: process_bam:calculate_crosslink_sites (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/27/82fa1e40de6df0d1a941e3d9f4425e]
+Dec-20 13:59:30.612 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 83; name: process_bam:calculate_crosslink_sites (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/b7/af9fd321f4b9b9f0f249741bbfcae7]
+Dec-20 13:59:30.616 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:30.616 [Task submitter] INFO  nextflow.Session - [6f/976970] Submitted process > process_bam:split_wig_2_for_peak_height_hist (A1_rep_3)
+Dec-20 13:59:30.621 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:30.621 [Task submitter] INFO  nextflow.Session - [f8/f8390a] Submitted process > process_bam:split_wig_2_for_peak_height_hist (A1_rep_2)
+Dec-20 13:59:30.707 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 73; name: process_bam:calculate_crosslink_sites (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/68/849f45f5e9a0b130a72f46a4f06ffd]
+Dec-20 13:59:30.825 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 87; name: process_bam:calculate_crosslink_sites (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/04/4d8f2d932a8ab64f88b02124d38490]
+Dec-20 13:59:30.829 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:30.830 [Task submitter] INFO  nextflow.Session - [d1/a32e3b] Submitted process > process_bam:split_wig_2_for_peak_height_hist (A2_rep_1)
+Dec-20 13:59:30.864 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 67; name: process_bam:calculate_crosslink_sites (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/bf/59f7174a0a5978211dd664a706a4fd]
+Dec-20 13:59:30.868 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:30.868 [Task submitter] INFO  nextflow.Session - [84/f812cb] Submitted process > process_bam:split_wig_2_for_peak_height_hist (A2_rep_3)
+Dec-20 13:59:31.048 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 102; name: process_bam:split_wig_2_for_peak_height_hist (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/2c/04b072a54a8af96b4a0fd82ed1d9d4]
+Dec-20 13:59:31.051 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:31.051 [Task submitter] INFO  nextflow.Session - [3a/c58ef9] Submitted process > process_bam:split_wig_2_for_peak_height_hist (A1_rep_1)
+Dec-20 13:59:31.104 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 100; name: process_bam:split_wig_2_for_peak_height_hist (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/d8/99578b978852b03661b29e04c29655]
+Dec-20 13:59:31.108 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:31.108 [Task submitter] INFO  nextflow.Session - [9d/25fe85] Submitted process > process_bam:generate_peak_height_histogram (unmatched)
+Dec-20 13:59:31.111 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:31.112 [Task submitter] INFO  nextflow.Session - [b0/81a35f] Submitted process > process_bam:generate_peak_height_histogram (A2_rep_2)
+Dec-20 13:59:31.117 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 105; name: process_bam:split_wig_2_for_peak_height_hist (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/6f/976970465ca1ea5955e40f1554f052]
+Dec-20 13:59:31.256 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 108; name: process_bam:split_wig_2_for_peak_height_hist (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/f8/f8390a6e5fbff7a611af04f98f5a83]
+Dec-20 13:59:31.261 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:31.261 [Task submitter] INFO  nextflow.Session - [e9/297cb7] Submitted process > process_bam:generate_peak_height_histogram (A1_rep_3)
+Dec-20 13:59:31.264 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:31.264 [Task submitter] INFO  nextflow.Session - [28/897eae] Submitted process > process_bam:generate_peak_height_histogram (A1_rep_2)
+Dec-20 13:59:31.332 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 112; name: process_bam:split_wig_2_for_peak_height_hist (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/d1/a32e3b73d54c788a312858628f298f]
+Dec-20 13:59:31.361 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 115; name: process_bam:split_wig_2_for_peak_height_hist (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/84/f812cb40795d98e13b49a4a0891871]
+Dec-20 13:59:31.366 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:31.366 [Task submitter] INFO  nextflow.Session - [2a/240e58] Submitted process > process_bam:generate_peak_height_histogram (A2_rep_1)
+Dec-20 13:59:31.369 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:31.370 [Task submitter] INFO  nextflow.Session - [93/9127c5] Submitted process > process_bam:generate_peak_height_histogram (A2_rep_3)
+Dec-20 13:59:31.540 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 117; name: process_bam:split_wig_2_for_peak_height_hist (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/3a/c58ef9c272fe0555bd647382f60cc8]
+Dec-20 13:59:31.772 [Actor Thread 34] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/wigtobigwig:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-wigtobigwig-1.0.img
+Dec-20 13:59:31.943 [Actor Thread 38] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/peak_distance:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-peak_distance-1.0.img
+Dec-20 13:59:32.544 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:32.544 [Task submitter] INFO  nextflow.Session - [80/6ae8ba] Submitted process > process_bam:generate_peak_height_histogram (A1_rep_1)
+Dec-20 13:59:33.735 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 120; name: process_bam:generate_peak_height_histogram (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/9d/25fe854f939d998f88c7d7205ec8f6]
+Dec-20 13:59:33.739 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:33.739 [Task submitter] INFO  nextflow.Session - [7a/3c5b2f] Submitted process > process_bam:wig_to_bigWig (unmatched_forward)
+Dec-20 13:59:33.913 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 124; name: process_bam:generate_peak_height_histogram (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/2a/240e580be0a62eea73c016285af2f7]
+Dec-20 13:59:33.917 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:33.917 [Task submitter] INFO  nextflow.Session - [de/799108] Submitted process > process_bam:wig_to_bigWig (A2_rep_1_forward)
+Dec-20 13:59:34.011 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 121; name: process_bam:generate_peak_height_histogram (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/b0/81a35ff070c9127e0673992f8b7878]
+Dec-20 13:59:34.016 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.016 [Task submitter] INFO  nextflow.Session - [1e/5f2391] Submitted process > process_bam:wig_to_bigWig (A1_rep_3_forward)
+Dec-20 13:59:34.074 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 104; name: process_bam:wig_to_bigWig (unmatched_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/7a/3c5b2f45866f1fc0ff52d89302ab93]
+Dec-20 13:59:34.078 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.078 [Task submitter] INFO  nextflow.Session - [18/854340] Submitted process > process_bam:wig_to_bigWig (A2_rep_3_forward)
+Dec-20 13:59:34.094 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 123; name: process_bam:generate_peak_height_histogram (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/28/897eae7a4820128f6ccbb51ad64d25]
+Dec-20 13:59:34.096 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 125; name: process_bam:generate_peak_height_histogram (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/93/9127c534b6b762bfe59be964124aed]
+Dec-20 13:59:34.097 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.097 [Task submitter] INFO  nextflow.Session - [b8/9ade8f] Submitted process > process_bam:wig_to_bigWig (A1_rep_2_forward)
+Dec-20 13:59:34.100 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.100 [Task submitter] INFO  nextflow.Session - [23/9fc76d] Submitted process > process_bam:wig_to_bigWig (A1_rep_1_forward)
+Dec-20 13:59:34.193 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 122; name: process_bam:generate_peak_height_histogram (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/e9/297cb7151813fe4a51f1fceec5cd6c]
+Dec-20 13:59:34.199 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.199 [Task submitter] INFO  nextflow.Session - [f2/18e953] Submitted process > process_bam:wig_to_bigWig (A2_rep_2_forward)
+Dec-20 13:59:34.288 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 113; name: process_bam:wig_to_bigWig (A2_rep_1_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/de/7991087c24e59a77bed44eda77f51e]
+Dec-20 13:59:34.292 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.292 [Task submitter] INFO  nextflow.Session - [7b/a9d53c] Submitted process > process_bam:calculate_peak_distance (A1_rep_3)
+Dec-20 13:59:34.385 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 107; name: process_bam:wig_to_bigWig (A1_rep_3_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/1e/5f23914041c59d35c5c4f24ff50e7a]
+Dec-20 13:59:34.389 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.389 [Task submitter] INFO  nextflow.Session - [e6/98b9bc] Submitted process > process_bam:calculate_peak_distance (unmatched)
+Dec-20 13:59:34.428 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 116; name: process_bam:wig_to_bigWig (A2_rep_3_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/18/854340ac80fab421f85a8a451964f1]
+Dec-20 13:59:34.431 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.431 [Task submitter] INFO  nextflow.Session - [32/a36e59] Submitted process > process_bam:calculate_peak_distance (A1_rep_1)
+Dec-20 13:59:34.502 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 110; name: process_bam:wig_to_bigWig (A1_rep_2_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/b8/9ade8fe65e5f8f41bb1e14e8804602]
+Dec-20 13:59:34.506 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.506 [Task submitter] INFO  nextflow.Session - [67/b12920] Submitted process > process_bam:calculate_peak_distance (A2_rep_3)
+Dec-20 13:59:34.552 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 95; name: process_bam:pureCLIP (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/26/b3c35eafd15c817c6e07fbb7157bdc]
+Dec-20 13:59:34.556 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.557 [Task submitter] INFO  nextflow.Session - [33/8d5481] Submitted process > process_bam:pureCLIP (A1_rep_2)
+Dec-20 13:59:34.560 [Actor Thread 31] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/sequence_extraction:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-sequence_extraction-1.0.img]
+Dec-20 13:59:34.584 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 119; name: process_bam:wig_to_bigWig (A1_rep_1_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/23/9fc76d2c2db698a10d445679b1f3ad]
+Dec-20 13:59:34.588 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.588 [Task submitter] INFO  nextflow.Session - [8b/2c1635] Submitted process > process_bam:calculate_peak_distance (A1_rep_2)
+Dec-20 13:59:34.632 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 101; name: process_bam:wig_to_bigWig (A2_rep_2_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/f2/18e95397a9d7ad751f8943995aba2b]
+Dec-20 13:59:34.636 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:34.636 [Task submitter] INFO  nextflow.Session - [c9/d6892f] Submitted process > process_bam:calculate_peak_distance (A2_rep_1)
+Dec-20 13:59:35.442 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 126; name: process_bam:generate_peak_height_histogram (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/80/6ae8bab6798208a0059e60f59cbeef]
+Dec-20 13:59:35.445 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:35.446 [Task submitter] INFO  nextflow.Session - [cc/224f96] Submitted process > process_bam:calculate_peak_distance (A2_rep_2)
+Dec-20 13:59:35.454 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 106; name: process_bam:calculate_peak_distance (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/7b/a9d53cfd1b01d710657cd06d83b50e]
+Dec-20 13:59:35.457 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:35.457 [Task submitter] INFO  nextflow.Session - [32/9e28af] Submitted process > process_bam:bigWig_to_bedgraph (unmatched_reverse)
+Dec-20 13:59:35.537 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 103; name: process_bam:calculate_peak_distance (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/e6/98b9bc35975efa00d74931f0955be7]
+Dec-20 13:59:35.541 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:35.541 [Task submitter] INFO  nextflow.Session - [60/f7233a] Submitted process > process_bam:bigWig_to_bedgraph (unmatched_forward)
+Dec-20 13:59:35.597 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 118; name: process_bam:calculate_peak_distance (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/32/a36e591c4bdac340c85e1fbabc7bef]
+Dec-20 13:59:35.601 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 114; name: process_bam:calculate_peak_distance (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/67/b12920aa98bbab6f755ef62adc79cc]
+Dec-20 13:59:35.603 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:35.603 [Task submitter] INFO  nextflow.Session - [c7/d85f18] Submitted process > process_bam:bigWig_to_bedgraph (A2_rep_1_forward)
+Dec-20 13:59:35.606 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:35.607 [Task submitter] INFO  nextflow.Session - [eb/acbebe] Submitted process > process_bam:bigWig_to_bedgraph (A2_rep_1_reverse)
+Dec-20 13:59:35.750 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 109; name: process_bam:calculate_peak_distance (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/8b/2c16358883caabd75b2ddeb02ba8d4]
+Dec-20 13:59:35.754 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:35.754 [Task submitter] INFO  nextflow.Session - [c0/921504] Submitted process > process_bam:bigWig_to_bedgraph (A1_rep_3_reverse)
+Dec-20 13:59:35.813 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 128; name: process_bam:bigWig_to_bedgraph (unmatched_reverse); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/32/9e28af0a7b7c97c7c06ba8b064808e]
+Dec-20 13:59:35.817 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:35.817 [Task submitter] INFO  nextflow.Session - [05/9c09f4] Submitted process > process_bam:bigWig_to_bedgraph (A1_rep_3_forward)
+Dec-20 13:59:35.843 [Actor Thread 31] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/sequence_extraction:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-sequence_extraction-1.0.img
+Dec-20 13:59:36.095 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 111; name: process_bam:calculate_peak_distance (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/c9/d6892fd17ca0ae21d5c54dfdc945d4]
+Dec-20 13:59:36.101 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.102 [Task submitter] INFO  nextflow.Session - [06/113a62] Submitted process > process_bam:bigWig_to_bedgraph (A2_rep_3_forward)
+Dec-20 13:59:36.176 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 127; name: process_bam:bigWig_to_bedgraph (unmatched_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/60/f7233a7e62974853184338e2d63f2a]
+Dec-20 13:59:36.180 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.181 [Task submitter] INFO  nextflow.Session - [dc/6c3625] Submitted process > process_bam:bigWig_to_bedgraph (A2_rep_3_reverse)
+Dec-20 13:59:36.217 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 129; name: process_bam:bigWig_to_bedgraph (A2_rep_1_reverse); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/eb/acbebea85eb7091aa75627ac14257f]
+Dec-20 13:59:36.221 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.221 [Task submitter] INFO  nextflow.Session - [de/789456] Submitted process > process_bam:bigWig_to_bedgraph (A1_rep_2_forward)
+Dec-20 13:59:36.300 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 130; name: process_bam:bigWig_to_bedgraph (A2_rep_1_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/c7/d85f18f98e5181646948a906303a77]
+Dec-20 13:59:36.304 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.304 [Task submitter] INFO  nextflow.Session - [7e/03a9b4] Submitted process > process_bam:bigWig_to_bedgraph (A1_rep_2_reverse)
+Dec-20 13:59:36.361 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 131; name: process_bam:bigWig_to_bedgraph (A1_rep_3_reverse); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/c0/92150474e4d2084574c0cd5c911981]
+Dec-20 13:59:36.364 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.364 [Task submitter] INFO  nextflow.Session - [c2/3b0fc5] Submitted process > process_bam:bigWig_to_bedgraph (A1_rep_1_reverse)
+Dec-20 13:59:36.409 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 132; name: process_bam:bigWig_to_bedgraph (A1_rep_3_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/05/9c09f4fc880d0a377b417735f9ecad]
+Dec-20 13:59:36.413 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.413 [Task submitter] INFO  nextflow.Session - [55/8e3c01] Submitted process > process_bam:bigWig_to_bedgraph (A1_rep_1_forward)
+Dec-20 13:59:36.481 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 134; name: process_bam:bigWig_to_bedgraph (A2_rep_3_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/06/113a628573510abdbf3647c4c1d06f]
+Dec-20 13:59:36.486 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.486 [Task submitter] INFO  nextflow.Session - [d1/74f3c2] Submitted process > process_bam:bigWig_to_bedgraph (A2_rep_2_reverse)
+Dec-20 13:59:36.513 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 99; name: process_bam:calculate_peak_distance (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/cc/224f96b04e7fe628e7465104b6eb83]
+Dec-20 13:59:36.518 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.518 [Task submitter] INFO  nextflow.Session - [8e/838179] Submitted process > process_bam:bigWig_to_bedgraph (A2_rep_2_forward)
+Dec-20 13:59:36.609 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 133; name: process_bam:bigWig_to_bedgraph (A2_rep_3_reverse); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/dc/6c3625049b65f37787e37c15cbc9f8]
+Dec-20 13:59:36.613 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.614 [Task submitter] INFO  nextflow.Session - [1c/2be8e6] Submitted process > process_bam:plot_peak_distance (1)
+Dec-20 13:59:36.640 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 136; name: process_bam:bigWig_to_bedgraph (A1_rep_2_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/de/7894567720f46c5c6b840dd9fa43d9]
+Dec-20 13:59:36.644 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.645 [Task submitter] INFO  nextflow.Session - [f5/7d19ee] Submitted process > process_bam:plot_peak_distance (2)
+Dec-20 13:59:36.682 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 135; name: process_bam:bigWig_to_bedgraph (A1_rep_2_reverse); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/7e/03a9b483d727c2b31c209f54c398cc]
+Dec-20 13:59:36.686 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.686 [Task submitter] INFO  nextflow.Session - [33/9d3071] Submitted process > process_bam:plot_peak_distance (3)
+Dec-20 13:59:36.781 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 138; name: process_bam:bigWig_to_bedgraph (A1_rep_1_reverse); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/c2/3b0fc5b1b4b1c74311ad747c5647f3]
+Dec-20 13:59:36.786 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.786 [Task submitter] INFO  nextflow.Session - [04/6ad822] Submitted process > process_bam:plot_peak_distance (4)
+Dec-20 13:59:36.889 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 139; name: process_bam:bigWig_to_bedgraph (A1_rep_1_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/55/8e3c0103f26e0013c1b28c1acef017]
+Dec-20 13:59:36.896 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.896 [Task submitter] INFO  nextflow.Session - [95/ff8168] Submitted process > process_bam:plot_peak_distance (5)
+Dec-20 13:59:36.908 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 141; name: process_bam:bigWig_to_bedgraph (A2_rep_2_reverse); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/d1/74f3c2c074a2e9c1df319b0a740b9a]
+Dec-20 13:59:36.911 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.911 [Task submitter] INFO  nextflow.Session - [a4/c74ccb] Submitted process > process_bam:sequence_extraction (unmatched)
+Dec-20 13:59:36.945 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 140; name: process_bam:bigWig_to_bedgraph (A2_rep_2_forward); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/8e/838179b894d8cfe07eb701ea409cdc]
+Dec-20 13:59:36.947 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.948 [Task submitter] INFO  nextflow.Session - [ae/f65670] Submitted process > process_bam:plot_peak_distance (6)
+Dec-20 13:59:36.961 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 94; name: process_bam:pureCLIP (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/9c/cee94ad75df08b99aacaf53ac8680b]
+Dec-20 13:59:36.964 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:36.965 [Task submitter] INFO  nextflow.Session - [2f/585d8e] Submitted process > process_bam:pureCLIP (A2_rep_2)
+Dec-20 13:59:38.387 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 137; name: process_bam:sequence_extraction (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/a4/c74ccb26eebed37a1eb6d358068567]
+Dec-20 13:59:38.395 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:38.396 [Task submitter] INFO  nextflow.Session - [5b/402f8c] Submitted process > process_bam:plot_peak_distance (7)
+Dec-20 13:59:38.401 [Actor Thread 20] INFO  nextflow.container.SingularityCache - Pulling Singularity image docker://pbarth/meme:1.0 [cache /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-meme-1.0.img]
+Dec-20 13:59:39.311 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 56; name: multiqc; status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/5d/7f85b83bdb2dd997f1c364b356868d]
+Dec-20 13:59:39.315 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:39.315 [Task submitter] INFO  nextflow.Session - [35/a343dc] Submitted process > process_bam:sequence_extraction (A2_rep_1)
+Dec-20 13:59:39.648 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 142; name: process_bam:plot_peak_distance (1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/1c/2be8e6e9928a06045c6f25826a6c88]
+Dec-20 13:59:39.730 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 144; name: process_bam:plot_peak_distance (3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/33/9d3071d70fc8f2c45ddac2ee5aa2bc]
+Dec-20 13:59:39.792 [Actor Thread 20] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=docker://pbarth/meme:1.0 path=/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/./bin/singularity/pbarth-meme-1.0.img
+Dec-20 13:59:39.832 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 143; name: process_bam:plot_peak_distance (2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/f5/7d19eef5f1e426d62bed456e896414]
+Dec-20 13:59:39.884 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 145; name: process_bam:plot_peak_distance (4); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/04/6ad822be4775c19adad32e8f254d6f]
+Dec-20 13:59:39.889 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:39.889 [Task submitter] INFO  nextflow.Session - [f0/c7f651] Submitted process > process_bam:motif_search (unmatched)
+Dec-20 13:59:40.047 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 146; name: process_bam:plot_peak_distance (5); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/95/ff81686d0b620fa3714504722e3009]
+Dec-20 13:59:40.221 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 150; name: process_bam:motif_search (unmatched); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/f0/c7f6516aa7c10b013899686ddf34b4]
+Dec-20 13:59:40.222 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `process_bam:motif_search (unmatched)` is unable to find [UnixPath]: `/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/f0/c7f6516aa7c10b013899686ddf34b4/unmatched.pureCLIP_crosslink_sites.extracted-sequences_motif` (pattern: `unmatched.pureCLIP_crosslink_sites.extracted-sequences_motif`)
+Dec-20 13:59:40.223 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process process_bam:motif_search > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Dec-20 13:59:40.321 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 147; name: process_bam:plot_peak_distance (6); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/ae/f656706d62a6fcd22d649208a1c2f2]
+Dec-20 13:59:40.530 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 149; name: process_bam:sequence_extraction (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/35/a343dc92dc2b5361fd3ec012a4e54c]
+Dec-20 13:59:41.218 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 148; name: process_bam:plot_peak_distance (7); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/5b/402f8c5f2885b4a231b69c131ca2f0]
+Dec-20 13:59:41.228 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:41.228 [Task submitter] INFO  nextflow.Session - [0a/42a1a4] Submitted process > process_bam:pureCLIP (A1_rep_3)
+Dec-20 13:59:42.241 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 97; name: process_bam:pureCLIP (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/92/6a30d7df8bdcd42dd155b74cdfdb4d]
+Dec-20 13:59:42.247 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:42.247 [Task submitter] INFO  nextflow.Session - [34/c9fbdc] Submitted process > process_bam:motif_search (A2_rep_1)
+Dec-20 13:59:42.304 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:42.304 [Task submitter] INFO  nextflow.Session - [93/b4e796] Submitted process > process_bam:sequence_extraction (A2_rep_3)
+Dec-20 13:59:42.498 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 96; name: process_bam:pureCLIP (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/33/8d54813b944694c15b23b431ead081]
+Dec-20 13:59:42.525 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:42.525 [Task submitter] INFO  nextflow.Session - [ad/93e0fc] Submitted process > process_bam:sequence_extraction (A1_rep_2)
+Dec-20 13:59:43.521 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 152; name: process_bam:sequence_extraction (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/93/b4e796af575def676a0d9cb03da24c]
+Dec-20 13:59:43.659 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:43.659 [Task submitter] INFO  nextflow.Session - [30/1f54d9] Submitted process > process_bam:motif_search (A2_rep_3)
+Dec-20 13:59:43.795 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 153; name: process_bam:sequence_extraction (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/ad/93e0fcb65a40d86b00cd107f234837]
+Dec-20 13:59:43.901 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:43.901 [Task submitter] INFO  nextflow.Session - [fa/d3fdc9] Submitted process > process_bam:motif_search (A1_rep_2)
+Dec-20 13:59:44.814 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 151; name: process_bam:motif_search (A2_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/34/c9fbdcef9fd26ba41b9796a561daaf]
+Dec-20 13:59:44.945 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 155; name: process_bam:motif_search (A1_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/fa/d3fdc9384b4332e0200adefead3286]
+Dec-20 13:59:45.798 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 93; name: process_bam:pureCLIP (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/0a/42a1a4fe541575f7b083bc42bd2088]
+Dec-20 13:59:45.853 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:45.853 [Task submitter] INFO  nextflow.Session - [ad/5d776b] Submitted process > process_bam:sequence_extraction (A1_rep_3)
+Dec-20 13:59:47.104 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 156; name: process_bam:sequence_extraction (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/ad/5d776bb2f01c4d471b1a950de7c9cf]
+Dec-20 13:59:47.132 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:47.132 [Task submitter] INFO  nextflow.Session - [aa/b9d9c1] Submitted process > process_bam:motif_search (A1_rep_3)
+Dec-20 13:59:47.204 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 98; name: process_bam:pureCLIP (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/2f/585d8e09c6bfa334b90def0a39135b]
+Dec-20 13:59:47.240 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:47.240 [Task submitter] INFO  nextflow.Session - [72/ab5ab7] Submitted process > process_bam:sequence_extraction (A2_rep_2)
+Dec-20 13:59:48.391 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 158; name: process_bam:sequence_extraction (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/72/ab5ab7a8b4728f6738a5127123da4f]
+Dec-20 13:59:48.524 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 157; name: process_bam:motif_search (A1_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/aa/b9d9c16b72391df90709975a07d1fe]
+Dec-20 13:59:48.531 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:48.531 [Task submitter] INFO  nextflow.Session - [a9/8ebb8a] Submitted process > process_bam:motif_search (A2_rep_2)
+Dec-20 13:59:48.656 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 92; name: process_bam:pureCLIP (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/5e/9eb2957739c2ea6306085194a44130]
+Dec-20 13:59:48.956 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:48.957 [Task submitter] INFO  nextflow.Session - [95/6556d9] Submitted process > process_bam:sequence_extraction (A1_rep_1)
+Dec-20 13:59:50.187 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 160; name: process_bam:sequence_extraction (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/95/6556d956577f773aa733b78ec6da8a]
+Dec-20 13:59:50.217 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-20 13:59:50.218 [Task submitter] INFO  nextflow.Session - [9e/6dfa3e] Submitted process > process_bam:motif_search (A1_rep_1)
+Dec-20 13:59:51.451 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 159; name: process_bam:motif_search (A2_rep_2); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/a9/8ebb8a23b8bcbe2e7f26b8d26754db]
+Dec-20 13:59:52.871 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 161; name: process_bam:motif_search (A1_rep_1); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/9e/6dfa3e9d4a37618130fa0a9e0cda7d]
+Dec-20 13:59:53.002 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 154; name: process_bam:motif_search (A2_rep_3); status: COMPLETED; exit: 0; error: -; workDir: /vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/30/1f54d98f0b335469e28155587c0335]
+Dec-20 13:59:53.004 [main] DEBUG nextflow.Session - Session await > all processes finished
+Dec-20 13:59:53.009 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Dec-20 13:59:53.018 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Dec-20 13:59:53.025 [main] INFO  nextflow.script.BaseScript - Pipeline completed at: 2022-12-20T13:59:53.018973940+01:00
+Dec-20 13:59:53.025 [main] INFO  nextflow.script.BaseScript - Execution status: OK
+Dec-20 13:59:53.031 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=161; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=12m 19s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=20; peakCpus=40; peakMemory=200 GB; ]
+Dec-20 13:59:53.227 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Dec-20 13:59:53.288 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Dec-20 13:59:53.289 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

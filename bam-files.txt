@@ -1,0 +1,7 @@
+/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/77/5d69ccaa82dec339372d6cbc0c9464/A2_rep_1.bam
+/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/ee/9e4b6c75631bfae86caa05f7ff5ee6/A2_rep_2.bam
+/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/b7/e7cb084b7a6f43647db7dd3f8e80dd/A1_rep_3.bam
+/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/1e/2642e96e3998ad694bf980c65048d0/unmatched.bam
+/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/87/0bc03342e73db427aaef0f487d2c79/A1_rep_2.bam
+/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/a3/7df1d8827b24ef20ec36360f1470c9/A1_rep_1.bam
+/vol/cb/projects/2022_paranoid_DSL2_Schwab/pipeline_dev/PARANOID/work/cb/a040399bf392857670b8ef6a1d4c82/A2_rep_3.bam

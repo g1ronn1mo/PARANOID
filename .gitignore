@@ -1,4 +1,11 @@
 # binary files from python modules
 __pycache__/
+.git/
 *.pyc
 .vscode/
+work/
+.nextflow.log.*
+output/
+.nextflow/cache/*
+outputs/
+bin/singularity/
