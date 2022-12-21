@@ -10,3 +10,4 @@ output/
 .nextflow/cache/*
 outputs/
 bin/singularity/
+.nextflow/
