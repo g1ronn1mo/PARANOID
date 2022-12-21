@@ -887,6 +887,7 @@ workflow alignment {
 }
 
 	
+// Todo: Split the process_bam Workflow into two workflows: one for the processing of the bam files and one for the processing of the bigwig files
 workflow process_bam {
 	take: mapping_in
 	main:
@@ -935,9 +936,11 @@ workflow process_bam {
 			bam_sort
 			.map{file -> tuple(file.name - ~/(_filtered_top\d*)?(.sorted)?.bam$/,file)}
 			.set{grouped_bam}
-		}
-		// txt_determine_strand = determine_strand_preference(grouped_bam.combine(choose_correct_reference_file))
-		// visualize_strand_preference(txt_determine_strand)
+		} 
+
+		// Todo: generate_igv_session does not work!
+		//  determine_strand_preference(grouped_bam.combine(choose_correct_reference_file)) | visualize_strand_preference
+
 		chrom_sizes = get_chromosome_sizes(reference)
 		calculate_crosslink_sites(collected_bam_files.combine(chrom_sizes))
 
@@ -1030,9 +1033,18 @@ workflow process_bam {
 		annotation_name= Channel.of('NO_FILE')
 		}
 		sort_and_index_alignment(bam_merge_deduplicated.bam_merge)
-		// generate_igv_session(filtered_big_wig.flatten().toList() , sort_and_index_alignment.out.bam_sorted_to_igv_session.flatten().toList(), track_path_dir, reference, annotation_name)
+		
+		// Todo: generate_igv_session does not work!
+		// generate_igv_session(
+		// 	filtered_big_wig.flatten().toList() , 
+		// 	sort_and_index_alignment.out.bam_sorted_to_igv_session.flatten().toList(), 
+		// 	track_path_dir, 
+		// 	reference, 
+		// 	annotation_name
+		// 	) 
 
 	emit:
+		// data for qc report
 		log_deduplicate 
 }
 
@@ -1043,10 +1055,8 @@ workflow {
 	preprocessing(input_reads)
 	barcode(preprocessing.out.reads_qualityFilter)
 	alignment(barcode.out.fastq_merge_preprocessed)	
-	reference.view()
 	process_bam(alignment.out.mapping)
 	output_reference(reference)
-
 
 
 	multiqc( 
@@ -1059,7 +1069,6 @@ workflow {
 		process_bam.out.log_deduplicate.first().flatten().toList() // file(params) // from params_peak_calling_to_collect_statistics.flatten().toList().first
 	)
 }
-
 
 
 workflow.onComplete{
