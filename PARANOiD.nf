@@ -1080,4 +1080,3 @@ workflow.onError {
 	println "Something went wrong :("
 	println "Pipeline execution stopped with following error message: ${workflow.errorMessage}"
 }
- 
